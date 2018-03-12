@@ -55,10 +55,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<a href="index.html" class="logo">
 			<!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini">
-				<img src="images/blog-logo.png" alt="">
+				<img src="images/blog-logo.png" alt="blog-logo">
 			</span>
 			<!-- logo for regular state and mobile devices -->
-			<span class="logo-lg"><b>My</b>Blog</span>
+			<span class="logo-lg"><img src="images/blog-logo.png" alt="blog-logo">&nbsp&nbsp<b>My</b>Blog</span>
 		</a>
 
 		<!-- Header Navbar -->
@@ -91,10 +91,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							</li>
 							<li class="user-footer">
 								<div class="pull-left">
-									<a href="#" class="btn btn-default btn-flat">Profile</a>
+									<a href="#" class="btn btn-default btn-flat"><b>Profile</b></a>
 								</div>
 								<div class="pull-right">
-									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+									<a href="#" class="btn btn-primary btn-flat"><b>Sign out</b></a>
 								</div>
 							</li>
 						</ul>
@@ -109,16 +109,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		<section class="sidebar">
 
 			<!-- Sidebar user panel (optional) -->
-			<div class="user-panel">
+			<!--<div class="user-panel">-->
 
-				<a href=""><i class="fa fa-plus-circle font-ico"></i></a>&nbsp&nbsp
-				<a href=""><i class="fa fa-minus-circle font-ico"></i></a>
+				<!--<a href=""><i class="fa fa-plus-circle font-ico"></i></a>&nbsp&nbsp-->
+				<!--<a href=""><i class="fa fa-minus-circle font-ico"></i></a>-->
 
-			</div>
+			<!--</div>-->
 
 			<!-- Sidebar Menu -->
 			<ul id="sidebar" class="sidebar-menu" data-widget="tree">
-				<li class="header">Previous Posts</li>
+				<li class="header"><i class="fa fa-history"></i>&nbsp&nbspPrevious Posts</li>
 
 				<!-- Optionally, you can add icons to the links -->
 				<!--<li><a href="add-customer.php"><i class="fa fa-plus"></i> <span>Add Customer</span></a>-->
@@ -137,10 +137,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 		<!-- Main content -->
 		<section class="content container-fluid">
-			<div class="col-md-12">
 
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="box">
+						<div class="box-body pad">
+							<form>
+
+                <textarea class="textarea"></textarea>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- /.col-->
 			</div>
-			<!-- /.col -->
+			<!-- ./row -->
 
 		</section>
 		<!-- /.content -->
@@ -153,82 +166,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			MSEC
 		</div>
 		<!-- Default to the left -->
-		<strong>Copyright &copy; 2018 <a href="#">Ceyentra Technologies</a>.</strong> All rights reserved.
+		<strong>Copyright &copy; 2018 <a href="http://www.ceyentra.com/">Ceyentra Technologies</a>.</strong> All rights reserved.
 	</footer>
 
-	<!-- Control Sidebar -->
-	<aside class="control-sidebar control-sidebar-dark">
-		<!-- Create the tabs -->
-		<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-			<li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-			<li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-		</ul>
-		<!-- Tab panes -->
-		<div class="tab-content">
-			<!-- Home tab content -->
-			<div class="tab-pane active" id="control-sidebar-home-tab">
-				<h3 class="control-sidebar-heading">Recent Activity</h3>
-				<ul class="control-sidebar-menu">
-					<li>
-						<a href="javascript:;">
-							<i class="menu-icon fa fa-sign-in-alt bg-red"></i>
-
-							<div class="menu-info">
-								<h4 class="control-sidebar-subheading">Signed in...</h4>
-
-								<p>Today</p>
-							</div>
-						</a>
-					</li>
-				</ul>
-				<!-- /.control-sidebar-menu -->
-
-				<h3 class="control-sidebar-heading">Tasks Progress</h3>
-				<ul class="control-sidebar-menu">
-					<li>
-						<a href="javascript:;">
-							<h4 class="control-sidebar-subheading">
-								Custom Template Design
-								<span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
-                  </span>
-							</h4>
-
-							<div class="progress progress-xxs">
-								<div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-							</div>
-						</a>
-					</li>
-				</ul>
-				<!-- /.control-sidebar-menu -->
-
-			</div>
-			<!-- /.tab-pane -->
-			<!-- Stats tab content -->
-			<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-			<!-- /.tab-pane -->
-			<!-- Settings tab content -->
-			<div class="tab-pane" id="control-sidebar-settings-tab">
-				<form method="post">
-					<h3 class="control-sidebar-heading">General Settings</h3>
-
-					<div class="form-group">
-						<label class="control-sidebar-subheading">
-							Report panel usage
-							<input type="checkbox" class="pull-right" checked>
-						</label>
-
-						<p>
-							Some information about this general settings option
-						</p>
-					</div>
-					<!-- /.form-group -->
-				</form>
-			</div>
-			<!-- /.tab-pane -->
-		</div>
-	</aside>
-	<!-- /.control-sidebar -->
 	<!-- Add the sidebar's background. This div must be placed
 	immediately after the control sidebar -->
 	<div class="control-sidebar-bg"></div>
@@ -249,18 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="js/admin-panel-scripts/demo.js"></script>
 <script src="js/admin-panel-scripts/jquery.dataTables.min.js"></script>
 <script src="js/admin-panel-scripts/dataTables.bootstrap.min.js"></script>
-<script>
-    $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
-        })
-    })
-</script>
+<script src="js/tinymce/tinymce.min.js"></script>
+<script src="js/init-tinymce.js"></script>
 </body>
 </html>
