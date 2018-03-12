@@ -1,5 +1,12 @@
 /* Simple VanillaJS to toggle class */
 
 $("#btnlogin").click(function () {
-    console.log("hari");
+
+    // $username = $("#fieldUser").val();
+    // $password = $("#fieldPassword").val();
+    //
+    // if ($username == "admin" & $password == "123") {
+        window.location.href = "admin-panel.html";
+    // }
+
 });
