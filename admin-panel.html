@@ -23,6 +23,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<link rel="stylesheet" href="css/admin-panel-style/_all-skins.min.css">
 	<!-- DataTables -->
 	<link rel="stylesheet" href="css/admin-panel-style/dataTables.bootstrap.min.css">
+	<!--SweetAlert-->
+	<link rel="stylesheet" href="css/sweetalert.css">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,10 +93,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							</li>
 							<li class="user-footer">
 								<div class="pull-left">
-									<a href="#" class="btn btn-default btn-flat"><b>Profile</b></a>
+									<!--<a href="#" class="btn btn-default btn-flat"><b>Profile</b></a>-->
+									<button type="button" id="btnProfile" class="btn btn-default btn-flat">Profile</button>
 								</div>
 								<div class="pull-right">
-									<a href="#" class="btn btn-primary btn-flat"><b>Sign out</b></a>
+									<!--<a href="#" class="btn btn-primary btn-flat"><b>Sign out</b></a>-->
+									<button type="button" id="btnSignOut" class="btn btn-primary btn-flat">Sign out</button>
 								</div>
 							</li>
 						</ul>
@@ -189,7 +193,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="js/admin-panel-scripts/demo.js"></script>
 <script src="js/admin-panel-scripts/jquery.dataTables.min.js"></script>
 <script src="js/admin-panel-scripts/dataTables.bootstrap.min.js"></script>
+<script src="js/sweetalert.js"></script>
 <script src="js/tinymce/tinymce.min.js"></script>
 <script src="js/init-tinymce.js"></script>
+<script src="js/admin-panel-controller.js"></script>
 </body>
 </html>
