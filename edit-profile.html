@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MyBlog | Admin Panel</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.7 -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="css/admin-panel-style/AdminLTE.min.css">
+	<!--SweetAlert-->
+	<link rel="stylesheet" href="css/sweetalert.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!--fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+
+	<!-- Google Font -->
+	<link rel="stylesheet"
+	      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+	<style>
+		#midSection {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.box-body{
+			border-bottom: 2px solid #3c8dbc;
+			border-left: 2px solid #3c8dbc;
+			border-right: 2px solid #3c8dbc;
+		}
+
+		#fileSelector{
+			display: none;
+		}
+	</style>
+
+</head>
+<body>
+<div class="wrapper">
+
+	<!-- Main content -->
+	<section id="midSection" class="content container-fluid col-md-6">
+
+		<div class="row">
+
+			<div class="box box-primary">
+				<div class="box-body pad">
+					<img class="profile-user-img img-responsive img-circle" src="images/mypic.jpg" alt="User profile picture">
+
+					<input id="fileSelector" type="file">
+
+					<p class="text-muted text-center"><a id="changeProfilePic" href="javascript://">Change Profile Picture</a></p>
+
+					<form id="frmAdminDetails">
+						<div class="form-group">
+							<label class="control-label">Full Name</label>
+							<input type="text" class="form-control" id="txtName" name="name">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Email</label>
+							<input type="text" class="form-control" id="txtEmail" name="email">
+						</div>
+						<div class="form-group">
+							<label>Username</label>
+							<div class="input-group">
+								<span class="input-group-addon">@</span>
+								<input type="text" class="form-control" id="txtUsername" name="username">
+							</div>
+						</div>
+						<div class="form-group">
+							<label>New Password</label>
+							<input type="text" class="form-control" id="txtPassword" name="password">
+						</div>
+						<div class="form-group">
+							<label>Confirm Password</label>
+							<input type="text" class="form-control" id="txtConfirmPassword">
+						</div>
+						<div class="form-group">
+							<button id="btnUpdate" type="button" class="btn btn-primary pull-right">Update Details</button>
+						</div>
+
+					</form>
+
+				</div>
+				<!-- /.box-body -->
+			</div>
+		</div>
+	</section>
+	<!-- /.content -->
+
+	<!-- Add the sidebar's background. This div must be placed
+	immediately after the control sidebar -->
+	<div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/sweetalert.js"></script>
+<script src="js/edit-profile-controller.js"></script>
+</body>
+</html>
