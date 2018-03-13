@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 			<!-- Sidebar Menu -->
 			<ul id="sidebar" class="sidebar-menu" data-widget="tree">
-				<li class="header"><i class="fa fa-history"></i>&nbsp&nbspPrevious Posts</li>
+				<li class="header"><i class="fa fa-history"></i>&nbsp&nbspPREVIOUS POSTS</li>
 
 				<!-- Optionally, you can add icons to the links -->
 				<!--<li><a href="add-customer.php"><i class="fa fa-plus"></i> <span>Add Customer</span></a>-->
@@ -146,11 +146,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			<div class="row">
 				<div class="col-md-12">
 
-					<div class="box">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Create new post</h3>
+						</div>
 						<div class="box-body pad">
 							<form>
-
-                <textarea class="textarea"></textarea>
+								<div class="form-group">
+									<label>Title</label>
+									<input name="title" id="txtTitle" type="text" class="form-control" placeholder="Enter post title here" required>
+								</div>
+								<div class="form-group">
+									<label>Description</label>
+									<input name="description" id="txtDescription" type="text" class="form-control" placeholder="Enter small description about the post here" required>
+								</div>
+                <div class="form-group">
+	                <label>Content</label>
+	                <textarea name="content" id="txtPost" class="textarea" required></textarea>
+                </div>
+								<div class="form-group">
+	                <button type="button" id="btnPublish" class="btn btn-primary pull-right btn-lg">Publish</button>
+                </div>
 							</form>
 						</div>
 					</div>
