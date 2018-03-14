@@ -1,3 +1,6 @@
+var username = "";
+var password = "";
+
 $(document).ready(function () {
 
     var ajaxConfig = {
@@ -10,10 +13,15 @@ $(document).ready(function () {
 
     $.ajax(ajaxConfig).done(function (response) {
 
-        $("#txtName").val(response[1]);
-        $("#txtEmail").val(response[2]);
-        $("#txtUsername").val(response[3]);
-        $("#txtPassword").val(response[4]);
+        if (response) {
+
+            username = response[3];
+            password = response[4];
+
+            $("#txtName").val(response[1]);
+            $("#txtEmail").val(response[2]);
+            $("#txtUsername").val(response[3]);
+        };
 
     });
 
@@ -24,35 +32,33 @@ $("#btnUpdate").click(function (event) {
 
     $("#action").val("save");
 
-    var name = $('#txtName').val();
-    var email = $('#txtEmail').val();
-    var username = $('#txtUsername').val();
     var password = $('#txtPassword').val();
     var confirmPassword = $('#txtConfirmPassword').val();
 
-    if (password == confirmPassword) {
+    if (password !== "" && password === confirmPassword) {
+
         var ajaxConfig = {
             method: "POST",
             url: "manage-user.php",
             async: true,
-            data: $('#frmAdminDetails').serialize(),
-            dataType: "json"
+            data: new FormData($('#frmAdminDetails')[0]),
+            dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false
         };
 
         $.ajax(ajaxConfig).done(function (response) {
-            if (response == true) {
-                swal("Successful!", "Details has been updated successfully!", "success");
-            } else {
-                swal("Failed!", "Failed to update the details!", "error");
-            }
+            alert(response);
         });
+
     }
 
 });
 
 $("#changeProfilePic").click(function () {
 
-    $("#fileSelector").click();
+    $("#file").click();
 
 });
 
@@ -62,12 +68,12 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('#profilePicture').attr('src', e.target.result);
-        }
+        };
 
         reader.readAsDataURL(input.files[0]);
     }
 }
 
-$("#fileSelector").change(function () {
+$("#file").change(function () {
     readURL(this);
 });

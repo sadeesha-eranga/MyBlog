@@ -44,7 +44,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			border-right: 2px solid #3c8dbc;
 		}
 
-		#fileSelector {
+		#file {
 			display: none;
 		}
 	</style>
@@ -64,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 					<p class="text-muted text-center"><a id="changeProfilePic" href="javascript://">Change Profile Picture</a></p>
 
-					<form id="frmAdminDetails">
+					<form id="frmAdminDetails" enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="control-label">Full Name</label>
 							<input type="text" class="form-control" id="txtName" name="name">
@@ -89,7 +89,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<button id="btnUpdate" type="button" class="btn btn-primary pull-right">Update Details</button>
 						</div>
 
-						<input name="profilePicture" id="fileSelector" type="file">
+						<input name="file" id="file" type="file">
+
 						<input type="hidden" name="action" id="action" value="load">
 					</form>
 
