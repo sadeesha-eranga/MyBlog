@@ -16,14 +16,13 @@ window.onload = function () {
 
     $.ajax(ajaxConfig).done(function (response) {
 
-        console.log(response[0]);
         imagePath = response[0];
 
     });
 
-    $("#imgProfile").attr("src", "images/uploads/"+imagePath);
+    // $("#imgProfile").attr("src", "images/uploads/"+imagePath);
 
-});
+};
 
 $("#btnlogin").click(function () {
 
@@ -49,21 +48,13 @@ $("#btnlogin").click(function () {
             username = response[3];
             password = response[4];
 
-            // console.log(response[3]);
-            // console.log(response[4]);
-
-            $("#txtName").val(response[1]);
-            $("#txtEmail").val(response[2]);
-            $("#txtUsername").val(response[3]);
+            if (uname === username & pword === password) {
+                window.location.href = "admin-panel.html";
+            }else{
+                swal("Failed!", "Invalid username or password", "error")
+            }
         }
 
     });
-
-
-    if (uname === username & pword === password) {
-        window.location.href = "admin-panel.html";
-    }else{
-        swal("Failed!", "Invalid username or password", "error")
-    }
 
 });
