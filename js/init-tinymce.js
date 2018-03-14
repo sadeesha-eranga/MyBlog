@@ -1,5 +1,5 @@
 tinyMCE.init({
-    selector: "textarea",
+    selector: "#txtPost",
 
     theme: "modern",
 
@@ -8,12 +8,50 @@ tinyMCE.init({
     plugins: [
         "advlist autolink link image lists charmap print preview hr anchor pagebreak",
         "searchreplace visualblocks visualchars insertdatetime media nonbreaking",
-        "table contextmenu directionality emoticons paste textcolor code"
+        "table contextmenu directionality emoticons paste textcolor code save"
     ],
 
-    toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | preview code ",
+    toolbar: "save undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | preview code ",
 
     image_advtab: true ,
+
+    images_upload_url: "upload.php",
+
+    images_upload_handler: function (blobInfo, success, failure) {
+
+        var xhr, formData;
+
+        xhr = new XMLHttpRequest();
+
+        xhr.withCredentials = false;
+
+        xhr.open('POST', 'upload.php');
+
+        xhr.onload = function (ev) {
+            var json;
+
+            if (xhr.status != 200) {
+                failure('HTTP Error: ' +xhr.status);
+                return;
+            }
+
+            json = JSON.parse(xhr.responseText);
+
+            if (!json || typeof json.location != 'string') {
+                failure('Invalid JSON: ' + xhr.responseText);
+                return;
+            }
+
+            success(json.location);
+
+            formData = new FormData();
+
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+            xhr.send(formData);
+        }
+
+    },
 
     automatic_uploads: true,
 

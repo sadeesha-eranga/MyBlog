@@ -38,13 +38,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 			transform: translateX(-50%);
 		}
 
-		.box-body{
+		.box-body {
 			border-bottom: 2px solid #3c8dbc;
 			border-left: 2px solid #3c8dbc;
 			border-right: 2px solid #3c8dbc;
 		}
 
-		#fileSelector{
+		#fileSelector {
 			display: none;
 		}
 	</style>
@@ -60,9 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 			<div class="box box-primary">
 				<div class="box-body pad">
-					<img class="profile-user-img img-responsive img-circle" src="images/mypic.jpg" alt="User profile picture">
-
-					<input id="fileSelector" type="file">
+					<img id="profilePicture" class="profile-user-img img-responsive img-circle" src="images/mypic.jpg" alt="User profile picture">
 
 					<p class="text-muted text-center"><a id="changeProfilePic" href="javascript://">Change Profile Picture</a></p>
 
@@ -76,24 +74,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<input type="text" class="form-control" id="txtEmail" name="email">
 						</div>
 						<div class="form-group">
-							<label>Username</label>
-							<div class="input-group">
-								<span class="input-group-addon">@</span>
-								<input type="text" class="form-control" id="txtUsername" name="username">
-							</div>
+							<label class="control-label">Username</label>
+							<input type="text" class="form-control" id="txtUsername" name="username">
 						</div>
 						<div class="form-group">
-							<label>New Password</label>
-							<input type="text" class="form-control" id="txtPassword" name="password">
+							<label>Password</label>
+							<input type="password" class="form-control" id="txtPassword" name="password">
 						</div>
 						<div class="form-group">
 							<label>Confirm Password</label>
-							<input type="text" class="form-control" id="txtConfirmPassword">
+							<input type="password" class="form-control" id="txtConfirmPassword">
 						</div>
 						<div class="form-group">
 							<button id="btnUpdate" type="button" class="btn btn-primary pull-right">Update Details</button>
 						</div>
 
+						<input name="profilePicture" id="fileSelector" type="file">
+						<input type="hidden" name="action" id="action" value="load">
 					</form>
 
 				</div>
