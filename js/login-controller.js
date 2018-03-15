@@ -18,9 +18,9 @@ window.onload = function () {
 
         imagePath = response[0];
 
-    });
+        $("#imgProfile").attr("src", "images/uploads/"+imagePath);
 
-    // $("#imgProfile").attr("src", "images/uploads/"+imagePath);
+    });
 
 };
 
