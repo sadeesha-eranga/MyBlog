@@ -1,6 +1,28 @@
 var username = "";
 var password = "";
 
+window.onload = function () {
+
+    var ajaxConfig = {
+        method: "POST",
+        url: "manage-user.php",
+        async: true,
+        data: {
+            action: "imagePath"
+        },
+        dataType: "json"
+    };
+
+    $.ajax(ajaxConfig).done(function (response) {
+
+        var imagePath = response[0];
+
+        $("#profilePicture").attr("src", "images/uploads/"+imagePath);
+
+    });
+
+};
+
 $(document).ready(function () {
 
     var ajaxConfig = {
@@ -32,10 +54,10 @@ $("#btnUpdate").click(function (event) {
 
     $("#action").val("save");
 
-    var password = $('#txtPassword').val();
-    var confirmPassword = $('#txtConfirmPassword').val();
+    var pass = $('#txtPassword').val();
+    var confirmPass = $('#txtConfirmPassword').val();
 
-    if (password !== "" && password === confirmPassword) {
+    if (pass !== "" && pass === confirmPass) {
 
         var ajaxConfig = {
             method: "POST",
@@ -49,10 +71,23 @@ $("#btnUpdate").click(function (event) {
         };
 
         $.ajax(ajaxConfig).done(function (response) {
-            alert(response);
+
+            if (response) {
+                swal({
+                        title: "Successful!",
+                        text: "Profile details has been updated successfully!",
+                        type: "success",
+                    },
+                    function(){
+                        window.location.href = "admin-panel.html";
+                    });
+            }
+
         });
 
     }
+
+    swal("Failed!", "Please enter valid inputs!", "error");
 
 });
 

@@ -88,50 +88,38 @@ function updateUserDetails(){
         $username = $_POST["username"];
         $password = $_POST["password"];
 
+        $isValid = validateDetails($name, $email, $username, $password);
 
-        $result = $connection->query("UPDATE `user` SET name='$name', email='$email', username='$username', password='$password', imagePath='$fileNameNew' WHERE id=1");
+        if ($isValid) {
 
-        if ($result) {
-            echo "true";
-            die;
-        }
-    }
+            $result = $connection->query("UPDATE `user` SET name='$name', email='$email', username='$username', password='$password', imagePath='$fileNameNew' WHERE id=1");
 
-//    echo "false";
-
-}
-
-
-function uploadFile(){
-    $file = $_FILES['file'];
-
-    $fileName = $_FILES['file']['name'];
-    $fileTmpName = $_FILES['file']['tnp_name'];
-    $fileSize = $_FILES['file']['size'];
-    $fileError = $_FILES['file']['error'];
-
-    $fileExt = explode('.', $fileName);
-    $fileActualExt = strtolower(end($fileExt));
-
-    $allowed = array('jpg', 'jpeg', 'png', 'pdf', 'gif');
-
-    if (in_array($fileActualExt, $allowed)) {
-
-        if ($fileError === 0) {
-
-            $fileNameNew = uniqid('', true).".".$fileActualExt;
-
-            $fileDestination = 'images/uploads/'.$fileNameNew;
-
-            move_uploaded_file($fileTmpName, $fileDestination);
-
-            echo "true";
-            die;
+            if ($result) {
+                echo "true";
+                die;
+            }
 
         }
 
     }
 
     echo "false";
+
+}
+
+
+function validateDetails($name, $email, $username, $password){
+
+    if (!empty($name) & !empty($email) & !empty($username) & !empty($password)) {
+
+        if ($name != "" & $email != "" & $username != "" & $password != "") {
+
+            return true;
+
+        }
+
+    }
+
+    return false;
 
 }

@@ -6,19 +6,54 @@
  * Time: 3:50 PM
  */
 
-if ( isset($_POST['content']) ){
+include "dbconnection.php";
 
-    //This is what you want - HTML content from tinyMCE
-    //just treat this a string
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if ( save_html_to_file($_POST['content'], '/some_file.html') ){
-        //Print 1 and exit script
-        die(1);
-    } else {
-        die("Couldn't write to stream");
+    $action = $_POST["action"];
+
+    switch ($action) {
+        case "save" : savePost(); break;
+        case "load" : loadPost(); break;
     }
+
 }
 
-function save_html_to_file($content, $path){
-    return (bool) file_put_contents($path, $content);
+function savePost() {
+
+    $title = $_POST["title"];
+    $description = $_POST["description"];
+    $content = $_POST["content"];
+    $date = date('Y-m-d', time());
+
+    $connection = getConnection();
+
+    if ($connection) {
+
+        $result = $connection->query("INSERT INTO post (title, description, `date`, content) VALUES ('$title', '$description', '$date', '$content')");
+
+        if ($result) {
+
+            echo "true";
+            die;
+
+        }
+    }
+
+    echo "false";
+
+}
+
+function loadPost() {
+
+    $connection = getConnection();
+
+    if ($connection) {
+
+        $resultSet = $connection->query("SELECT * FROM post")->fetch_all();
+
+        echo json_encode($resultSet);
+
+    }
+
 }

@@ -8,10 +8,10 @@ tinyMCE.init({
     plugins: [
         "advlist autolink link image lists charmap print preview hr anchor pagebreak",
         "searchreplace visualblocks visualchars insertdatetime media nonbreaking",
-        "table contextmenu directionality emoticons paste textcolor code save"
+        "table contextmenu directionality emoticons paste textcolor code"
     ],
 
-    toolbar: "save undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | preview code ",
+    toolbar: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | preview code ",
 
     image_advtab: true ,
 
