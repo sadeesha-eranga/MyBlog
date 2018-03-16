@@ -1,3 +1,17 @@
+<?php
+
+include "dbconnection.php";
+
+$connection = getConnection();
+
+if ($connection) {
+
+	$post = $connection->query("SELECT * FROM post WHERE id=1")->fetch_row();
+
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +25,11 @@
 
 <div id="contentDiv">
 
+
+
 </div>
 
+
+<script src="js/jquery.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 
+var postsArray = [];
+
 window.onload = function () {
 
     var ajaxConfig = {
@@ -37,21 +39,30 @@ window.onload = function () {
 
         if (response) {
 
-            console.log(response);
+            postsArray = response;
 
-            for (i = 0; i<response.length; i++){
-
-                $("#sidebar").append("<li><a id=\"getAllPosts\" href=\"javascript://\"><i class=\"fa fa-th-list\"></i> <span>"+ response[i][1] +"</span></a></li>");
-
-            }
-
-            // tinyMCE.get('txtPost').setContent(response[6][4]);
+            updatePostList(response);
 
         }
 
     });
 
+
 };
+
+function updatePostList(response){
+    for (i = 0; i<response.length; i++){
+
+        $("#sidebar").append("<li><a class='listofposts' href=\"javascript://\"><i class=\"fa fa-angle-double-right\"></i> <span>"+ response[i][0]+" - "+response[i][1] +"</span></a></li>");
+
+    }
+}
+
+$(document).on('click', '.listofposts', function (e) {
+
+    alert(e.srcElement);
+
+});
 
 $('#btnSignOut').click(function () {
 
@@ -113,6 +124,21 @@ $('#btnPublish').click(function (e) {
         if (response) {
             swal("Successful!", "Your post has been published!", "success");
             clearFields();
+            ajaxConfig = {
+                method: "POST",
+                url: "manage-posts.php",
+                async: true,
+                data: {
+                    action: "load"
+                },
+                dataType: "json"
+            };
+            $.ajax(ajaxConfig).done(function (response) {
+                if (response) {
+                    $("#sidebar").html("");
+                    updatePostList(response);
+                }
+            });
         } else {
             swal("Failed!", "Failed to publish your post!", "error");
         }
