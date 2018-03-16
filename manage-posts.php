@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch ($action) {
         case "save" : savePost(); break;
         case "load" : loadPost(); break;
+        case "get" : getById(); break;
     }
 
 }
@@ -56,4 +57,18 @@ function loadPost() {
 
     }
 
+}
+
+function getById(){
+    $connection = getConnection();
+
+    $id = $_POST['id'];
+
+    if ($connection) {
+
+        $post = $connection->query("SELECT * FROM post WHERE id=$id")->fetch_row();
+
+        echo json_encode($post);
+
+    }
 }

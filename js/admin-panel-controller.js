@@ -58,9 +58,28 @@ function updatePostList(response){
     }
 }
 
-$(document).on('click', '.listofposts', function (e) {
+$('body').delegate('.listofposts', 'click' , function (e) {
 
-    alert(e.srcElement);
+    var id = this.text.charAt(1);
+
+    var ajaxConfig = {
+        method: "POST",
+        url: "manage-posts.php",
+        async: true,
+        data: {
+            action: "get",
+            id: id
+        },
+        dataType: "json"
+    };
+
+    $.ajax(ajaxConfig).done(function (response) {
+
+        $("#txtTitle").val(response[1]);
+        $("#txtDescription").val(response[2]);
+        tinyMCE.get('txtPost').setContent(response[4]);
+
+    });
 
 });
 
@@ -156,32 +175,4 @@ function clearFields() {
 
 }
 
-// $("#getAllPosts").click(function () {
-//
-//     var ajaxConfig = {
-//         method: "POST",
-//         url: "manage-posts.php",
-//         async: true,
-//         data: {
-//             action: "load"
-//         },
-//         dataType: "json"
-//     };
-//
-//     $.ajax(ajaxConfig).done(function (response) {
-//
-//         if (response) {
-//
-//             console.log(response);
-//
-//             for (i = 0; i<response.length; i++){
-//
-//                 $("#sidebar").append("<li><a id=\"getAllPosts\" href=\"javascript://\"><i class=\"fa fa-th-list\"></i> <span>"+ response[i][1] +"</span></a></li>");
-//
-//             }
-//         }
-//
-//     });
-//
-// });
 
